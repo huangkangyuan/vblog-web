@@ -4,10 +4,10 @@
       <a @click="view(id)" class="me-article-title">{{title}}</a>
       <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
       <span class="me-pull-right me-article-count">
-	    	<i class="me-icon-comment"></i>&nbsp;{{commentCounts}}
+	    	<i class="me-icon-comment"></i>&nbsp;{{commentNum}}
 	    </span>
       <span class="me-pull-right me-article-count">
-	    	<i class="el-icon-view"></i>&nbsp;{{viewCounts}}
+	    	<i class="el-icon-view"></i>&nbsp;{{viewNum}}
 	    </span>
     </div>
 
@@ -17,13 +17,13 @@
 
     <div class="me-article-footer">
 	  	<span class="me-article-author">
-	    	<i class="me-icon-author"></i>&nbsp;{{author.nickname}}
+	    	<i class="me-icon-author"></i>&nbsp;{{nickname}}
 	    </span>
 
       <el-tag v-for="t in tags" :key="t.tagname" size="mini" type="success">{{t.tagname}}</el-tag>
 
       <span class="me-pull-right me-article-count">
-	    	<i class="el-icon-time"></i>&nbsp;{{createDate | format}}
+	    	<i class="el-icon-time"></i>&nbsp;{{createTime | format}}
 	    </span>
     </div>
   </el-card>
@@ -38,12 +38,12 @@
       id: Number,
       weight: Number,
       title: String,
-      commentCounts: Number,
-      viewCounts: Number,
+      commentNum: Number,
+      viewNum: Number,
       summary: String,
-      author: Object,
+      nickname: Object,
       tags: Array,
-      createDate: String
+      createTime: String
     },
     data() {
       return {

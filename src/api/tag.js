@@ -2,7 +2,7 @@ import request from '@/request'
 
 export function getAllTags() {
   return request({
-    url: '/tags',
+    url: '/tags/list',
     method: 'get',
   })
 }
