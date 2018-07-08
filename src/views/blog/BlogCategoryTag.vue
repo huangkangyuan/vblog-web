@@ -71,7 +71,6 @@
           this.getCategoryDetail(id)
           this.article.query.categoryId = id
         }
-
       },
       getCategoryDetail(id) {
         let that = this

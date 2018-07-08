@@ -9,7 +9,6 @@
         <!--</ul>-->
       <!--</el-aside>-->
       <el-main>
-
         <div class="me-view-card">
           <h1 class="me-view-title">{{article.title}}</h1>
           <div class="me-view-author">
@@ -65,7 +64,7 @@
                     <img class="me-view-picture" :src="avatar"></img>
                   </a>
                 </el-col>
-                <el-col :span="22">
+                <el-col :span="21">
                   <el-input
                     type="textarea"
                     :autosize="{ minRows: 2}"
@@ -78,14 +77,14 @@
               </el-row>
 
               <el-row :gutter="20">
-                <el-col :span="2" :offset="22">
-                  <el-button type="text" @click="publishComment()">评论</el-button>
+                <el-col :span="3" :offset="21">
+                  <el-button type="text"  @click="publishComment()" style="margin-top: 5px;">评论</el-button>
                 </el-col>
               </el-row>
             </div>
 
             <div class="me-view-comment-title">
-              <span>{{article.commentCounts}} 条评论</span>
+              <span>{{article.commentNum}} 条评论</span>
             </div>
 
             <commment-item
@@ -97,9 +96,7 @@
               @commentCountsIncrement="commentCountsIncrement"
               :key="c.id">
             </commment-item>
-
           </div>
-
         </div>
       </el-main>
 
@@ -276,6 +273,7 @@
 
   .me-view-end {
     margin-top: 20px;
+    padding-right: 25px;
   }
 
   .me-view-tag {
