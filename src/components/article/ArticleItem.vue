@@ -4,13 +4,12 @@
       <a @click="view(id)" class="me-article-title">{{title}}</a>
       <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
       <span class="me-pull-right me-article-count">
-	    	<i class="me-icon-comment"></i>&nbsp;{{commentNum}}
-	    </span>
+        <i class="me-icon-comment"></i>&nbsp;{{commentNum}}
+      </span>
       <span class="me-pull-right me-article-count">
-	    	<i class="el-icon-view"></i>&nbsp;{{viewNum}}
-	    </span>
+        <i class="el-icon-view"></i>&nbsp;{{viewNum}}
+      </span>
     </div>
-
     <div class="me-artile-description">
       {{summary}}
     </div>
@@ -20,7 +19,7 @@
 	    	<i class="me-icon-author"></i>&nbsp;{{nickname}}
 	    </span>
 
-      <el-tag v-for="t in tags" :key="t.tagname" size="mini" type="success">{{t.tagname}}</el-tag>
+      <el-tag v-for="t in tags" :key="t" size="mini" type="success">{{t}}</el-tag>
 
       <span class="me-pull-right me-article-count">
 	    	<i class="el-icon-time"></i>&nbsp;{{createTime | format}}
@@ -69,12 +68,12 @@
   }
 
   .me-article-icon {
-    padding: 3px 8px;
+    padding: 3px 6px;
   }
 
   .me-article-count {
     color: #a6a6a6;
-    padding-left: 14px;
+    padding-left: 8px;
     font-size: 13px;
   }
 

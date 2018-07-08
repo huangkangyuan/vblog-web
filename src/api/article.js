@@ -1,6 +1,5 @@
 import request from '@/request'
 
-
 export function getArticles(query, page) {
   return request({
     url: '/article/list',

@@ -9,7 +9,7 @@
                 <div class="me-allct-content">
                   <a class="me-allct-info">
                     <img class="me-allct-img" :src="c.avatar?c.avatar:defaultAvatar"/>
-                    <h4 class="me-allct-name">{{c.categoryname}}</h4>
+                    <h4 class="me-allct-name">{{c.categoryName}}</h4>
                     <p class="me-allct-description">{{c.description}}</p>
                   </a>
 
@@ -26,7 +26,7 @@
                 <div class="me-allct-content">
                   <a class="me-allct-info">
                     <img class="me-allct-img" :src="t.avatar?t.avatar:defaultAvatar"/>
-                    <h4 class="me-allct-name">{{t.tagname}}</h4>
+                    <h4 class="me-allct-name">{{t.tagName}}</h4>
                   </a>
 
                   <div class="me-allct-meta">

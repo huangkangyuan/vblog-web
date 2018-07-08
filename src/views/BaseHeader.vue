@@ -18,7 +18,7 @@
           <el-menu-item index="/log">日志</el-menu-item>
           <el-menu-item index="/feedback">留言板</el-menu-item>
 
-          <el-col :span="4" :offset="4">
+          <el-col :span="2" :offset="2">
             <el-menu-item index="/write"><i class="el-icon-edit"></i>写文章</el-menu-item>
           </el-col>
 

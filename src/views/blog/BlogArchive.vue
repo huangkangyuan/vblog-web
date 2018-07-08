@@ -1,7 +1,6 @@
 <template>
   <div v-title :data-title="title">
     <el-container>
-
       <el-aside class="me-area">
         <ul class="me-month-list">
           <li v-for="a in archives" :key="a.year + a.month" class="me-month-item">
@@ -15,9 +14,7 @@
 
       <el-main class="me-articles">
         <div class="me-month-title">{{currentArchive}}</div>
-
         <article-scroll-page v-bind="article"></article-scroll-page>
-
       </el-main>
     </el-container>
   </div>

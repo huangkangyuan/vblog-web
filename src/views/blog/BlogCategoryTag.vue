@@ -5,12 +5,12 @@
         <div class="me-ct-title me-area">
           <template v-if="this.$route.params.type === 'tag'">
             <img class="me-ct-picture" :src="ct.avatar?ct.avatar:defaultAvatar"/>
-            <h3 class="me-ct-name">{{ct.tagname}}</h3>
+            <h3 class="me-ct-name">{{ct.tagName}}</h3>
           </template>
 
           <template v-else>
             <img class="me-ct-picture" :src="ct.avatar?ct.avatar:defaultAvatar"/>
-            <h3 class="me-ct-name">{{ct.categoryname}}</h3>
+            <h3 class="me-ct-name">{{ct.categoryName}}</h3>
             <p>{{ct.description}}</p>
           </template>
 
@@ -55,9 +55,9 @@
     computed: {
       title() {
         if(this.$route.params.type === 'tag'){
-          return `${this.ct.tagname} - 标签 - For Fun`
+          return `${this.ct.tagName} - 标签 - For Fun`
         }
-        return `${this.ct.categoryname} - 文章分类 - For Fun`
+        return `${this.ct.categoryName} - 文章分类 - For Fun`
       }
     },
     methods: {
