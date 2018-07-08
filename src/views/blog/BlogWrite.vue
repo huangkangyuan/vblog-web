@@ -2,10 +2,10 @@
   <div id="write" v-title :data-title="title">
     <el-container>
       <base-header :simple=true>
-        <el-col :span="4" :offset="2">
+        <el-col :span="4" :offset="4">
           <div class="me-write-info">写文章</div>
         </el-col>
-        <el-col :span="4" :offset="6">
+        <el-col :span="4" :offset="2">
           <div class="me-write-btn">
             <el-button round @click="publishShow">发布</el-button>
             <el-button round @click="cancel">取消</el-button>
@@ -23,7 +23,6 @@
                       placeholder="请输入标题"
                       class="me-write-input">
             </el-input>
-
           </div>
           <div id="placeholder" style="visibility: hidden;height: 89px;display: none;"></div>
           <markdown-editor :editor="articleForm.editor" class="me-write-editor"></markdown-editor>
@@ -40,18 +39,18 @@
             <el-input type="textarea"
                       v-model="articleForm.summary"
                       :rows="6"
-                      placeholder="请输入摘要">
+                      placeholder="请输入文章摘要">
             </el-input>
           </el-form-item>
           <el-form-item label="文章分类" prop="category">
             <el-select v-model="articleForm.category" value-key="id" placeholder="请选择文章分类">
-              <el-option v-for="c in categorys" :key="c.id" :label="c.categoryname" :value="c"></el-option>
+              <el-option v-for="c in categorys" :key="c.id" :label="c.categoryName" :value="c"></el-option>
             </el-select>
           </el-form-item>
 
           <el-form-item label="文章标签" prop="tags">
             <el-checkbox-group v-model="articleForm.tags">
-              <el-checkbox v-for="t in tags" :key="t.id" :label="t.id" name="tags">{{t.tagname}}</el-checkbox>
+              <el-checkbox v-for="t in tags" :key="t.id" :label="t.id" name="tags">{{t.tagName}}</el-checkbox>
             </el-checkbox-group>
           </el-form-item>
         </el-form>
@@ -73,19 +72,9 @@
 
   export default {
     name: 'BlogWrite',
-    mounted() {
-
-      if(this.$route.params.id){
-        this.getArticleById(this.$route.params.id)
-      }
-
-      this.getCategorysAndTags()
-      this.editorToolBarToFixedWrapper = this.$_.throttle(this.editorToolBarToFixed, 200)
-
-      window.addEventListener('scroll', this.editorToolBarToFixedWrapper, false);
-    },
-    beforeDestroy() {
-      window.removeEventListener('scroll', this.editorToolBarToFixedWrapper, false)
+    components: {
+      'base-header': BaseHeader,
+      'markdown-editor': MarkdownEditor
     },
     data() {
       return {
@@ -147,20 +136,30 @@
         return '写文章 - For Fun'
       }
     },
+    mounted() {
+      if(this.$route.params.id){
+        this.getArticleById(this.$route.params.id)
+      }
+      this.getCategorysAndTags()
+      this.editorToolBarToFixedWrapper = this.$_.throttle(this.editorToolBarToFixed, 200)
+
+      window.addEventListener('scroll', this.editorToolBarToFixedWrapper, false);
+    },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.editorToolBarToFixedWrapper, false)
+    },
     methods: {
       getArticleById(id) {
         let that = this
         getArticleById(id).then(data => {
-
           Object.assign(that.articleForm, data.data)
-          that.articleForm.editor.value = data.data.body.content
+          that.articleForm.editor.value = data.data.content
 
           let tags = this.articleForm.tags.map(function (item) {
             return item.id;
           })
 
           this.articleForm.tags = tags
-
 
         }).catch(error => {
           if (error !== 'error') {
@@ -187,12 +186,9 @@
         this.publishVisible = true;
       },
       publish(articleForm) {
-
         let that = this
-
         this.$refs[articleForm].validate((valid) => {
           if (valid) {
-
             let tags = this.articleForm.tags.map(function (item) {
               return {id: item};
             });
@@ -207,7 +203,6 @@
                 content: this.articleForm.editor.value,
                 contentHtml: this.articleForm.editor.ref.d_render
               }
-
             }
 
             this.publishVisible = false;
@@ -221,14 +216,12 @@
               loading.close();
               that.$message({message: '发布成功啦', type: 'success', showClose: true})
               that.$router.push({path: `/view/${data.data.articleId}`})
-
             }).catch((error) => {
               loading.close();
               if (error !== 'error') {
                 that.$message({message: error, type: 'error', showClose: true});
               }
             })
-
           } else {
             return false;
           }
@@ -260,10 +253,8 @@
             that.$message({type: 'error', message: '标签加载失败', showClose: true})
           }
         })
-
       },
       editorToolBarToFixed() {
-
         let toolbar = document.querySelector('.v-note-op');
         let curHeight = document.documentElement.scrollTop || document.body.scrollTop;
         if (curHeight >= 160) {
@@ -274,10 +265,6 @@
           toolbar.classList.remove("me-write-toolbar-fixed");
         }
       }
-    },
-    components: {
-      'base-header': BaseHeader,
-      'markdown-editor': MarkdownEditor
     },
     //组件内的守卫 调整body的背景色
     beforeRouteEnter(to, from, next) {
@@ -319,11 +306,12 @@
   }
 
   .me-write-title {
+    border-bottom: solid 1px #404040;
   }
 
   .me-write-input textarea {
     font-size: 32px;
-    font-weight: 600;
+    font-weight: 500;
     height: 20px;
     border: none;
   }

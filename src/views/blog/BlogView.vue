@@ -28,6 +28,7 @@
               @click="editArticle()"
               style="position: absolute;left: 60%;"
               size="mini"
+              type="success"
               round
               icon="el-icon-edit">编辑</el-button>
           </div>
