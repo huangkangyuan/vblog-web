@@ -7,7 +7,7 @@
     </div>
     <div class="me-author-tool">
       <i @click="showTool(qq)" :title="qq.title" class="me-icon-QQ"></i>
-      <i @click="showTool(github)" :title="gitee.title" class="me-icon-github"></i>
+      <i @click="showTool(gitee)" :title="gitee.title" class="me-icon-github"></i>
     </div>
   </el-card>
 </template>
