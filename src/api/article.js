@@ -38,20 +38,12 @@ export function viewArticle(id) {
   })
 }
 
-export function getArticlesByCategory(id) {
+export function getArticleById(id) {
   return request({
-    url: `/article/category/${id}`,
+    url: `/article/${id}`,
     method: 'get'
   })
 }
-
-export function getArticlesByTag(id) {
-  return request({
-    url: `/article/tag/${id}`,
-    method: 'get'
-  })
-}
-
 
 export function publishArticle(article) {
   return request({
@@ -68,9 +60,22 @@ export function listArchives() {
   })
 }
 
-export function getArticleById(id) {
+
+/*
+ * 以下俩接口暂时未用到
+ * 可通过/article/list接口实现
+ */
+export function getArticlesByCategory(id) {
   return request({
-    url: `/article/${id}`,
+    url: `/article/category/${id}`,
     method: 'get'
   })
 }
+
+export function getArticlesByTag(id) {
+  return request({
+    url: `/article/tag/${id}`,
+    method: 'get'
+  })
+}
+

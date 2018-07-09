@@ -1,5 +1,18 @@
 import request from '@/request'
 
+export function register(account, nickname, password) {
+  const data = {
+    account,
+    nickname,
+    password
+  }
+  return request({
+    url: '/register',
+    method: 'post',
+    data
+  })
+}
+
 export function login(account, password) {
   const data = {
     account,
@@ -26,15 +39,3 @@ export function getUserInfo() {
   })
 }
 
-export function register(account, nickname, password) {
-  const data = {
-    account,
-    nickname,
-    password
-  }
-  return request({
-    url: '/register',
-    method: 'post',
-    data
-  })
-}

@@ -57,7 +57,7 @@
           pageSize: 5,
           pageNo: 1,
           name: 'create_time',
-          sort: 'DESC'
+          sort: 'desc'
         },
         articles: []
       }

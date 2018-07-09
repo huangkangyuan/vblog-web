@@ -14,16 +14,19 @@ export function getAllCategorysDetail() {
   })
 }
 
-export function getCategory(id) {
+export function getCategoryDetail(id) {
   return request({
-    url: `/category/${id}`,
+    url: `/category/detail/${id}`,
     method: 'get',
   })
 }
 
-export function getCategoryDetail(id) {
+ /*
+  * 暂时未用到
+  */
+export function getCategory(id) {
   return request({
-    url: `/category/detail/${id}`,
+    url: `/category/${id}`,
     method: 'get',
   })
 }

@@ -49,10 +49,6 @@
 
   export default {
     name: 'BlogAllCategoryTag',
-    created() {
-      this.getCategorys()
-      this.getTags()
-    },
     data() {
       return {
         defaultAvatar:defaultAvatar,
@@ -74,9 +70,13 @@
         if(this.currentActiveName == 'category'){
           return '文章分类 - For Fun'
         }
-        console.info('dddd')
+        console.info('dddd---test')
         return '标签 - For Fun'
       }
+    },
+    created() {
+      this.getCategorys()
+      this.getTags()
     },
     methods: {
       view(id) {

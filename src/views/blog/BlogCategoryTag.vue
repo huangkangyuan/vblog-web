@@ -49,6 +49,9 @@
         },
       }
     },
+    components: {
+      ArticleScrollPage
+    },
     created() {
       this.getCategoryOrTagAndArticles()
     },
@@ -112,9 +115,6 @@
           }
         })
       }
-    },
-    components: {
-      ArticleScrollPage
     }
   }
 </script>

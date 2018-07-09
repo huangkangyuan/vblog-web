@@ -7,13 +7,6 @@ export function getAllTags() {
   })
 }
 
-export function getAllTagsDetail() {
-  return request({
-    url: '/tags/detail',
-    method: 'get',
-  })
-}
-
 export function getHotTags() {
   return request({
     url: '/tags/hot',
@@ -21,9 +14,9 @@ export function getHotTags() {
   })
 }
 
-export function getTag(id) {
+export function getAllTagsDetail() {
   return request({
-    url: `/tags/${id}`,
+    url: '/tags/detail',
     method: 'get',
   })
 }
@@ -34,3 +27,15 @@ export function getTagDetail(id) {
     method: 'get',
   })
 }
+
+
+/*
+ * 暂时未用到
+ */
+export function getTag(id) {
+  return request({
+    url: `/tags/${id}`,
+    method: 'get',
+  })
+}
+
