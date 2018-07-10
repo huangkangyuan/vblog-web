@@ -15,9 +15,6 @@
     <div>
       <p class="me-view-comment-content">{{comment.content}}</p>
       <div class="me-view-comment-tools">
-        <!--<a class="me-view-comment-tool">-->
-        <!--<i class="el-icon-caret-top"></i> 20-->
-        <!--</a>-->
         <a class="me-view-comment-tool" @click="showComment(-1)">
           <i class="me-icon-comment"></i>&nbsp; 评论
         </a>
@@ -27,9 +24,7 @@
         <div class="me-reply-item" v-for="c in comment.childrens" :key="c.id">
           <div style="font-size: 14px">
             <span class="me-reply-user">{{c.author.nickname}}:&nbsp;&nbsp;</span>
-
             <span v-if="c.level == 2" class="me-reply-user">@{{c.toUser.nickname}} </span>
-
             <span>{{c.content}}</span>
           </div>
           <div class="me-view-meta">
@@ -38,11 +33,9 @@
               <i class="me-icon-comment"></i>&nbsp;回复
             </a>
           </div>
-
         </div>
 
         <div class="me-view-comment-write" v-show="commentShow">
-
           <el-input
             v-model="reply.content"
             type="input"
@@ -51,11 +44,8 @@
             class="me-view-comment-text"
             resize="none">
           </el-input>
-
           <el-button style="margin-left: 8px" @click="publishComment()" type="text">评论</el-button>
-
         </div>
-
       </div>
 
     </div>

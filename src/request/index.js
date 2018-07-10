@@ -46,6 +46,8 @@ service.interceptors.response.use(
           message: '未登录或登录超时，请重新登录哦'
         })
 
+        // store.dispatch('fedLogOut')
+
         return Promise.reject('error');
       }
 
