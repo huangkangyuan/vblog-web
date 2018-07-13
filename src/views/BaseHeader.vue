@@ -2,13 +2,13 @@
   <el-header class="me-area">
     <el-row class="me-header">
 
-      <el-col :span="4"  offset="2" class="me-header-left">
+      <el-col :span="2"  offset="2" class="me-header-left">
         <router-link to="/" class="me-title">
           <img src="../assets/img/logo.png"/>
         </router-link>
       </el-col>
 
-      <el-col v-if="!simple" :span="15" offset="0">
+      <el-col v-if="!simple" :span="12" offset="0">
         <el-menu :router=true menu-trigger="click" active-text-color="#5FB878" :default-active="activeIndex"
                  mode="horizontal">
           <el-menu-item index="/">首页</el-menu-item>
@@ -18,7 +18,7 @@
           <el-menu-item index="/log">日志</el-menu-item>
           <el-menu-item index="/feedback">留言板</el-menu-item>
 
-          <el-col :span="2" :offset="2">
+          <el-col :span="2" :offset="1">
             <el-menu-item index="/write"><i class="el-icon-edit"></i>写文章</el-menu-item>
           </el-col>
 
@@ -29,7 +29,7 @@
         <slot></slot>
       </template>
 
-      <el-col :span="2" offset="0">
+      <el-col :span="4" offset="0">
         <el-menu :router=true menu-trigger="click" mode="horizontal" active-text-color="#5FB878">
 
           <template v-if="!user.login">
