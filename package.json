@@ -1,8 +1,8 @@
 {
-  "name": "blog-app",
+  "name": "vblog-web",
   "version": "1.0.0",
-  "description": "blog-app",
-  "author": "shimh",
+  "description": "vblog-web",
+  "author": "雪山飞狐",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
