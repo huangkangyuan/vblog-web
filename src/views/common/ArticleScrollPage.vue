@@ -54,7 +54,7 @@
         loading: false,
         noData: false,
         innerPage: {
-          pageSize: 5,
+          pageSize: 10,
           pageNo: 1,
           name: 'create_time',
           sort: 'desc'
